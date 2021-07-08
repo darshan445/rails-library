@@ -1,0 +1,34 @@
+<div class="container">
+<%= link_to "New Author",new_author_path, class:'btn btn-success my-2' %>
+<%= link_to "New Book",books_path, class:'btn btn-success my-2'%>
+
+
+ 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th scope="col">name</th>
+      <th scope="col">Birthdate</th>
+      <th>Book</th>
+      <th>Gender</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @authors.each do |author| %>
+    <tr>
+        <td><%= author.id %></td>
+        <td><%= author.name %></td>
+        <td><%= author.bdate %></td>
+        <td><%= author.books.pluck(:name).reject(&:blank?).join(',') %></td>
+         <td><%= author.gender %></td>
+      <td><%= link_to 'Delete', author_path(author), method: :delete %></td>
+    </tr>
+    <%end%> 
+  </tbody>
+</table>
+</div>
+
+    

@@ -1,0 +1,15 @@
+<%= form_with model:@book do |form| %>
+    <div>
+        <strong>Bookname</strong>
+        <%= form.text_field :name, class:'form-control' %>
+    </div>
+
+    <div>
+        <strong>Select Author</strong>
+        <%= form.select :author_id,options_for_select(Author.all.map{|author| [author.name, author.id] })%>
+    </div>
+  
+    <div>
+        <%= form.submit 'create Book', class:'btn btn-primary my-2'%>
+    </div>
+<% end %>

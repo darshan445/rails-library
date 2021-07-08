@@ -1,0 +1,39 @@
+ 
+<%= form_with model: @author, local: false do |form| %>
+    <div>
+        <strong>Authorname</strong>
+        <%= form.text_field :name, class:'form-control' %>
+    </div>
+
+    <div>
+        <strong>AuthorBirthDate</strong>
+        <%= form.date_field :bdate, class:'form-control'%>
+    </div>
+    
+    <div class="jsBooks">
+        <%= form.fields_for :books do |books_form| %>
+            <%= render 'nested_form', form: books_form %>
+        <%end%>
+    </div>
+
+    <div>
+        <strong>select author gender</strong>
+       <% Author.genders.keys.each do |gender| %>
+            <%= form.radio_button :gender, gender %>
+            <%= form.label :gender, gender %>
+        <% end %>
+    </div>  
+
+    <%= link_to "Add book", "javascript:void(0);", id: "addBook"%><br>
+    <%= form.submit 'submit', class: 'btn btn-primary' %>
+
+<% end %>
+
+
+<script>
+
+</script>
+
+
+
+            
