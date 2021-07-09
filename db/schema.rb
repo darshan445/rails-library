@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_061228) do
+ActiveRecord::Schema.define(version: 2021_07_09_085042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,21 @@ ActiveRecord::Schema.define(version: 2021_07_09_061228) do
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.integer "e_count"
+    t.text "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "companies_projects", id: false, force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "project_id", null: false
+    t.index ["company_id", "project_id"], name: "index_companies_projects_on_company_id_and_project_id"
+    t.index ["project_id", "company_id"], name: "index_companies_projects_on_project_id_and_company_id"
+  end
+
   create_table "emps", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -38,6 +53,12 @@ ActiveRecord::Schema.define(version: 2021_07_09_061228) do
   end
 
   create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

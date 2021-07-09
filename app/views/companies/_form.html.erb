@@ -1,0 +1,27 @@
+<%= form_with model: @company do |form| %>
+    <div>
+        <strong>Company Name</strong>
+        <%= form.text_field :name, class:'form-control'%>
+    </div>
+
+    <div>
+        <strong>Company Employees Number</strong>
+        <%= form.text_field :e_count, class:'form-control' %>
+    </div>
+
+    <div>
+        <strong>Company Address</strong>
+        <%= form.text_field :address, class:'form-control' %>
+    </div>
+
+    <div>
+       <%= form.fields_for :projects do |project_form| %>
+            <strong>Project Name</strong>
+            <%= project_form.text_field :name, class: 'form-control' %>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.submit class:'btn btn-success my-3' %>
+    </div>
+<%end%>

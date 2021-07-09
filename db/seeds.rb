@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Genre.create([{
-        name: 'war of the planet'
-    },
-    {
-        name: 'pirates of carribean'
-    },
-    {
-        name:'mission 2010'
-    }
-])
+# Genre.create([{
+#         name: 'war of the planet'
+#     },
+#     {
+#         name: 'pirates of carribean'
+#     },
+#     {
+#         name:'mission 2010'
+#     }
+# ])
 
