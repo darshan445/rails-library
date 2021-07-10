@@ -1,17 +1,25 @@
-<div class="container">
+<div class="container my-3">
+    <%= link_to 'Projects', projects_path, class: 'btn btn-primary' %>
 <%= render 'form' %>
+
     <table class="table">
         <tr>
             <th>Company Name</th>
             <th>Company Employees</th>
             <th>Company Address</th>
+            <th>Projects</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
 
         <% @companies.each do |company| %>
             <tr>
                 <td><%= company.name %></td>
                 <td><%= company.e_count %></td>
-                <td><%= company.address %></td>    
+                <td><%= company.address %></td>
+                <td><%= company.projects.pluck(:name).reject(&:blank?).join(',') %></td>    
+                <td><%= link_to 'Edit', edit_company_path(company) %></td>
+                <td><%= link_to 'Delete', company_path(company), method: :delete %></td>
             </tr>
         <% end %>
     </table>

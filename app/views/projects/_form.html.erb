@@ -1,0 +1,26 @@
+<%= form_with model: @project do |form| %>
+    <div>
+        <strong>Project Name</strong>
+        <%= form.text_field :name, class:'form-control'%>
+    </div>
+
+    <%
+=begin%>
+ <div>
+       <%#= form.fields_for :companies do |company_form| %>
+            <strong>Company Name</strong>
+            <%#= company_form.text_field :name, class:'form-control'%>
+        <%# end %>
+    </div> 
+<%
+=end%>
+
+    <div>
+    <strong>Select Company</strong>
+     <%= collection_check_boxes(:project, :company_ids, Company.all,:id,:name)%>
+    </div>
+
+    <div>
+        <%= form.submit class:'btn btn-success my-3' %>
+    </div>
+<%end%>

@@ -15,10 +15,13 @@
     </div>
 
     <div>
-       <%= form.fields_for :projects do |project_form| %>
-            <strong>Project Name</strong>
-            <%= project_form.text_field :name, class: 'form-control' %>
-        <% end %>
+       <%#= form.fields_for @company.projects.build, id:'nested-field' do |project_form| %>
+            <strong>Select Project</strong>
+            <%#= project_form.text_field :name, class:'form-control', name: 'company[projects][0][name]' %>
+            
+
+        <%# end %>
+        <%= collection_check_boxes(:company, :project_ids, Project.all,:id,:name)%>
     </div>
 
     <div>

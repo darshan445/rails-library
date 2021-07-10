@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   # get 'companies/index'
   # root 'authors#index'
 
-  # resources :authors
+  resources :authors
   # get 'bs/index', to: 'bs#index'
   # get 'bs/new', to: 'bs#new'
-  # resources :books
+  resources :books
   # project_add_form_field_path
 
   root 'companies#index'
