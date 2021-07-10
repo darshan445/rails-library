@@ -1,0 +1,24 @@
+<div class="container">
+<h2>Create Tution</h2>
+    <%= render 'form' %>
+
+    <table class="table">
+        <tr>
+            <th>Tution Name</th>
+            <th>Tution Address</th>
+            <th>Teachers</th>
+            <th>Subjects</th>
+            <th>Delete</th>
+        </tr>
+
+        <%@tutions.each do |tution|%>
+        <tr>
+            <td><%= tution.name %></td>
+            <td><%= tution.address %></td>
+            <td><%= tution.teachers.pluck(:name).join(',') %></td>
+            <td><%= tution.subjects.pluck(:name).join(',') %></td>
+            <td><%= link_to 'Delete', tution_path(tution), method: :delete %></td>
+        </tr>
+        <%end%>
+    </table>
+</div>
