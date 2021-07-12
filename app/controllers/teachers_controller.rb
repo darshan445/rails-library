@@ -11,6 +11,6 @@ class TeachersController < ApplicationController
 
   private
     def teacher_params
-      params.require(:teacher).permit(:name, :connected_by_id, :connected_by_type)
+      params.require(:teacher).permit(:name, :connected_by_id, :connected_by_type, :subject_id)
     end
 end

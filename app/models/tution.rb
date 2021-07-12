@@ -6,26 +6,34 @@ class Tution < ApplicationRecord
   # before_validation :remove_whitespaces
   validates :name, length: { minimum: 6 }
   after_validation :set_status
- 
+  after_create :randomize_id
 
  
 
 
 
   private
+
+  def randomize_id
+    puts ""
+  end
+
+
+
+
   # def remove_whitespaces
   
   # end
 
-  def set_status
-      puts "name is: #{self.name}"
+  # def set_status
+  #     puts "name is: #{self.name}"
       # self.Tution.delete(id)
       # @tution=Tution.all
       # @tution.map{|name| puts name.name}
       # @name=Tution.name
       # @name.destroy
       # puts "After create it destroyed"
-  end
+  # end
 
     # def publish
     #   puts 'updating'

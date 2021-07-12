@@ -5,10 +5,10 @@
     </div>
 
        <%#= collection_check_boxes(:subject, :connected_by_id, Tution.all,:id,:name)%>
-         <%= form.select :connected_by_id, options_for_select(Tution.all.map{|tution| [tution.name, tution.id] })%>
+         <%#= form.select :connected_by_id, options_for_select(Tution.all.map{|tution| [tution.name, tution.id] })%>
     <div class="fields">
-        <%= form.hidden_field :connected_by_type, value: 'Tution' %>
-        
-        <%= form.submit class:'btn btn-primary my-2'  %>
+        <%#= form.hidden_field :connected_by_type, value: 'Tution' %>
+      <%= form.select :subject_id, options_for_select(Subject.all.map{|subject| [subject.name, subject.id] })%>
     </div>
+    <%= form.submit class:'btn btn-primary my-2'  %>
 <%end%>

@@ -1,11 +1,16 @@
 <div class="container">
 <h3>Create Teacher</h3>
     <%= render "form" %>
-    <strong>Select Tution</strong>
     <%#= collection_check_boxes(:teacher, :connected_by_id, Tution.all,:id,:name)%>
 
+<table class="table">
+    <tr>
+        <th>Teachers</th>
+    </tr>
 
     <%@teachers.each do |teacher|%>
-        <%=teacher.name%>
+    <tr>
+        <td><%=teacher.name%></td>
+    </tr>
     <%end%>
-</div>
+</table>
