@@ -1,7 +1,10 @@
 class TutionsController < ApplicationController
   def index
     @tution=Tution.new
+    # @tution.teachers.build
+    # @tution.subjects.build 
     @tutions=Tution.all
+   
   end
 
   def create

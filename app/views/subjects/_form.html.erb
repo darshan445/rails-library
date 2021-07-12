@@ -1,0 +1,15 @@
+<%= form_with model: @subject do |form| %>
+    <div class="fields">
+        <strong>Subject Name</strong>
+        <%= form.text_field :name, class:'form-control'%>
+    </div>
+
+       <%#= collection_check_boxes(:subject, :connected_by_id, Tution.all,:id,:name)%>
+    <div class="fields">
+       <strong>select Tution</strong>
+         <%= form.select :connected_by_id, options_for_select(Tution.all.map{|tution| [tution.name, tution.id] })%>
+         <%= form.hidden_field :connected_by_type, value: 'Tution' %>
+    </div>
+
+        <%= form.submit class:'btn btn-primary my-2'  %>
+<%end%>

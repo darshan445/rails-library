@@ -2,20 +2,38 @@ class Tution < ApplicationRecord
   has_many :teachers, as: :connected_by, dependent: :delete_all
   has_many :subjects, as: :connected_by, dependent: :delete_all
   # validates_uniqueness_of :name, :address
+  # after_create_commit :publish
+  # before_validation :remove_whitespaces
+  validates :name, length: { minimum: 6 }
+  after_validation :set_status
+ 
 
-  validates :name, :address, presence: true
+ 
 
-  before_validation :ensure_name_and_address_has_a_value
+
 
   private
-    
-    # def  ensure_name_and_address_has_a_value
-    #   if name.nil?
-    #     self.name = address unless address.blank?
-    #   end
+  # def remove_whitespaces
+  
+  # end
+
+  def set_status
+      puts "name is: #{self.name}"
+      # self.Tution.delete(id)
+      # @tution=Tution.all
+      # @tution.map{|name| puts name.name}
+      # @name=Tution.name
+      # @name.destroy
+      # puts "After create it destroyed"
+  end
+
+    # def publish
+    #   puts 'updating'
+    #   update(name: "darshan thakor")
+    #   puts 'updated successfully'
     # end
 
-    # before_create do
-    #   self.name = login.capitalize if name.blank?
+    # def post_on_social_media
+    #   puts 'posting on social media'
     # end
 end

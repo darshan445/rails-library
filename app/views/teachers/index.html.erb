@@ -1,2 +1,11 @@
-<h1>Teachers#index</h1>
-<p>Find me in app/views/teachers/index.html.erb</p>
+<div class="container">
+<h3>Create Teacher</h3>
+    <%= render "form" %>
+    <strong>Select Tution</strong>
+    <%#= collection_check_boxes(:teacher, :connected_by_id, Tution.all,:id,:name)%>
+
+
+    <%@teachers.each do |teacher|%>
+        <%=teacher.name%>
+    <%end%>
+</div>

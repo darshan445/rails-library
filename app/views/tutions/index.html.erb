@@ -1,7 +1,9 @@
-<div class="container">
-<h2>Create Tution</h2>
-    <%= render 'form' %>
+<div class="container my-3">
+    <%= link_to 'Teacher',teachers_path, class: 'btn btn-primary' %>
+    <%= link_to 'Subject' ,subjects_path, class: 'btn btn-primary'  %>
 
+    <h3>Create Tution</h3>
+    <%= render 'form'%>
     <table class="table">
         <tr>
             <th>Tution Name</th>

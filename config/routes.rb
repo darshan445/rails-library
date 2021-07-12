@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'subjects/index'
-  get 'teachers/index'
-  get 'tutions/index'
+  # get 'subjects/index'
+  # get 'teachers/index'
+  # get 'tutions/index'
   # get 'projects/index'
   # get 'companies/index'
   # root 'authors#index'
@@ -17,8 +17,10 @@ Rails.application.routes.draw do
   resources :companies 
   resources :projects
 
+  
+  resources :tutions
   resources :subjects
   resources :teachers
-  resources :tutions
+  
   
 end
