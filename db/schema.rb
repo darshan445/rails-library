@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_114830) do
+ActiveRecord::Schema.define(version: 2021_07_13_051651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +81,9 @@ ActiveRecord::Schema.define(version: 2021_07_12_114830) do
     t.bigint "connected_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "subject_id"
     t.index ["connected_by_type", "connected_by_id"], name: "index_teachers_on_connected_by"
+    t.index ["subject_id"], name: "index_teachers_on_subject_id"
   end
 
   create_table "tutions", force: :cascade do |t|
@@ -93,4 +95,5 @@ ActiveRecord::Schema.define(version: 2021_07_12_114830) do
 
   add_foreign_key "books", "authors"
   add_foreign_key "subjects", "teachers"
+  add_foreign_key "teachers", "subjects"
 end

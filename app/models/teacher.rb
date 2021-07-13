@@ -1,6 +1,6 @@
 class Teacher < ApplicationRecord
     belongs_to :connected_by, polymorphic: true, required: false
-		has_many :subjects
+	belongs_to :subject
     # after_create :randomize_id
     before_create :assign_tution
 
