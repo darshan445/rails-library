@@ -1,0 +1,22 @@
+<div class="container my-3">
+<%= link_to 'Add Subject',subjects_path, class:'btn btn-primary' %>
+    <%= render 'form'%>
+<table class="table">
+    <tr>
+        <th>Student Name</th>
+        <th>Student Class</th>
+        <th>Student Subjects</th>
+    </tr>
+  <%@students.each do |student|%>
+    <tr>
+        <td><%= student.name%></td>
+        <td><%= student.class_no %></td>  
+        <td><%= student.subjects.pluck(:name).reject(&:blank?).join(',') %></td>
+       
+    </tr>
+  <%end%>
+</table>
+  
+       
+  
+</div>

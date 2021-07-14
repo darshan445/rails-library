@@ -10,5 +10,8 @@
         <%#= form.hidden_field :connected_by_type, value: 'Tution' %>
       <%= form.select :subject_id, options_for_select(Subject.all.map{|subject| [subject.name, subject.id] })%>
     </div>
+
+
+    
     <%= form.submit class:'btn btn-primary my-2'  %>
 <%end%>

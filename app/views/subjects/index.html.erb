@@ -1,7 +1,16 @@
 <div class="container">
     <%= render "form" %>
 
+<table class="table">
+    <tr>
+        <th>Subject Name</th>
+        <th>Student Name</th>
+    </tr>
+
     <%@subjects.each do |subject|%>
-        <%= subject.name %>
+    <tr>
+        <td><%= subject.name %></td>
+        <td><%= subject.students.pluck(:name).reject(&:blank?).join(',')%></td>
+    </tr>
     <%end%>
-</div>
+</table>

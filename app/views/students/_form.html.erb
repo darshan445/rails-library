@@ -1,0 +1,25 @@
+<%= form_with model: @student do |form| %>
+    <div>
+        <strong>Student Name</strong>
+        <%= form.text_field :name, class:'form-control' %>
+    </div>
+
+    <div>
+        <strong>Student Class</strong>
+        <%= form.text_field :class_no , class:'form-control'%>
+    </div>
+
+   
+
+<strong>Select Subject</strong>
+    <div class="row">
+            <%= collection_check_boxes(:student, :subject_ids, Subject.all,:id,:name) do |b|%>
+                <%#=b.inspect%>
+                    <%= b.label class:"label-checkbox" do%>
+                    <%= b.text!="" ? b.check_box + b.text : "" %>
+                <%end%> 
+            <%end%>
+        </div>
+
+    <%= form.submit class:'btn btn-primary'  %>
+<%end%>

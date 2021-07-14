@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # get 'subjects/index'
   # get 'teachers/index'
   # get 'tutions/index'
@@ -21,6 +22,6 @@ Rails.application.routes.draw do
   resources :tutions
   resources :subjects
   resources :teachers
-  
+  resources :students  
   
 end

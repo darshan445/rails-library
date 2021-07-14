@@ -11,5 +11,46 @@
          <%= form.hidden_field :connected_by_type, value: 'Tution' %>
     </div>
 
+    <div>
+        <strong>Select Student</strong>
+
+<%#= check_box(:subject, :student_ids, Student.all,:id,:name)%>
+<%#= check_box("tag", tag.id, {checked: true}) %>
+
+<div>
+    <%Subject.all.each do |subject|%>
+        <%subject.students.each do |student |%>
+        <div class="checkbox">
+            <td>
+            <%if student.name!="" %>
+                <%= label_tag(:param_name1,student.name ) %>
+                <%= check_box_tag(:param_name1) %>
+            <%end%>
+            </td>
+        </div>
+        <%end%>
+    <%end%>
+</div>
+
+
+<%#=Subject.includes(:students).pluck('students.name').reject(&:blank?).join(',')%>
+
+
+<%
+=begin%>
+  
+ <div class="row">
+            <%= collection_check_boxes(:subject, :student_ids, Student.all,:id,:name) do |b|%>
+                 <%#=b.inspect%>
+                     <%= b.label class:"label-checkbox" do%>
+                     <%= b.text!="" ? b.check_box + b.text : "" %>
+                 <%end%> 
+             <%end%>
+         </div>         
+    </div>   
+<%
+=end%>
+
+
         <%= form.submit class:'btn btn-primary my-2'  %>
 <%end%>

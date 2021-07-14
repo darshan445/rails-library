@@ -14,6 +14,6 @@ class SubjectsController < ApplicationController
 
   private
     def subject_params
-      params.require(:subject).permit(:name, :connected_by_id, :connected_by_type)
+      params.require(:subject).permit(:name, :connected_by_id, :connected_by_type, student_id: [])
     end
 end

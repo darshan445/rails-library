@@ -4,22 +4,18 @@
         <%= form.text_field :name, class:'form-control'%>
     </div>
 
-    <%
-=begin%>
- <div>
-       <%#= form.fields_for :companies do |company_form| %>
-            <strong>Company Name</strong>
-            <%#= company_form.text_field :name, class:'form-control'%>
-        <%# end %>
-    </div> 
-<%
-=end%>
-
-    <div>
+    
+  
     <strong>Select Company</strong>
-     <%= collection_check_boxes(:project, :company_ids, Company.all,:id,:name)%>
-    </div>
 
+    <div class="row">
+            <%= collection_check_boxes(:project, :company_ids, Company.all,:id,:name) do |b|%>
+                <%#=b.inspect%>
+                    <%= b.label class:"label-checkbox" do%>
+                    <%= b.text!="" ? b.check_box + b.text : "" %>
+                <%end%> 
+            <%end%>
+        </div>
     <div>
         <%= form.submit class:'btn btn-success my-3' %>
     </div>

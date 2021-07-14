@@ -6,7 +6,9 @@ class TeachersController < ApplicationController
 
   def create
     @teacher=Teacher.create(teacher_params)
-    redirect_to teachers_path
+    redirect_to teachers_url
+    p teachers_path
+    p teachers_url
   end
 
   private

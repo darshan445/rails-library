@@ -25,15 +25,15 @@ class Tution < ApplicationRecord
   
   # end
 
-  # def set_status
-  #     puts "name is: #{self.name}"
+  def set_status
+      puts "name is: #{self.name}"
       # self.Tution.delete(id)
       # @tution=Tution.all
       # @tution.map{|name| puts name.name}
       # @name=Tution.name
       # @name.destroy
       # puts "After create it destroyed"
-  # end
+  end
 
     # def publish
     #   puts 'updating'

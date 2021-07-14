@@ -14,3 +14,7 @@
  *= require_tree .
  *= require_self
  */
+
+ .add-space{
+     /* margin-right: 4px; */
+ }
