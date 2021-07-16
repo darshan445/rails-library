@@ -12,11 +12,12 @@ class AuthorsController < ApplicationController
 
   def create
     @author=Author.create(author_params)
-     redirect_to root_path
+      redirect_to root_path
   end
 
   def destroy
     @author=Author.find(params[:id])
+   
     @author.destroy
     redirect_to root_path
   end

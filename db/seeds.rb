@@ -1,11 +1,11 @@
-# created tution recoreds using seed 
+created tution recoreds using seed 
 Tution.find_or_create_by(name: 'n1', address: 'address1')
 Tution.find_or_create_by(name: 'n5', address: 'address5')
 Tution.find_or_create_by(name: 'n2', address: 'address2')
 Tution.find_or_create_by(name: 'n1', address: 'address1')
 Tution.find_or_create_by(name: 'n6', address: 'address6')
 
-# Subject.create(name: 'English', connected_by: Tution.first)
+Subject.create(name: 'English', connected_by: Tution.first)
 
 Subject.find_or_create_by(name: 'Science', connected_by: Tution.find(15))
 Subject.find_or_create_by(name: 'mat', connected_by: Tution.find(15))
