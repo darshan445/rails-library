@@ -1,0 +1,8 @@
+    <tr id=<%= "company-#{company.id}" %>>
+        <td><%= company.name %></td>
+        <td><%= company.e_count %></td>
+        <td><%= company.address %></td>
+        <td><%= company.projects.pluck(:name).reject(&:blank?).join(',') %></td>    
+        <td><%= link_to 'Edit', edit_company_path(company), remote: true, class: 'edit' %></td>
+        <td><%= link_to 'Delete', company_path(company), method: :delete %></td>
+    </tr>

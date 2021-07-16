@@ -82,9 +82,7 @@ ActiveRecord::Schema.define(version: 2021_07_13_105645) do
     t.bigint "connected_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "teacher_id"
     t.index ["connected_by_type", "connected_by_id"], name: "index_subjects_on_connected_by"
-    t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -106,6 +104,5 @@ ActiveRecord::Schema.define(version: 2021_07_13_105645) do
   end
 
   add_foreign_key "books", "authors"
-  add_foreign_key "subjects", "teachers"
   add_foreign_key "teachers", "subjects"
 end

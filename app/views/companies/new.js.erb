@@ -1,0 +1,14 @@
+$( document ).ready(function() {
+    $('.add').click(function(){
+        
+        $("#Model").find(".modal-body").html("<%= j render partial: 'form' %>");
+        $("#Model").modal("show");    
+    })
+});
+
+console.log('working new');
+    
+
+// $(document).on("page:change", function() {
+    
+//   });

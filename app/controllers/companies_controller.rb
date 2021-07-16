@@ -1,7 +1,10 @@
 class CompaniesController < ApplicationController
   def index
-    @company=Company.new
     @companies=Company.all
+   
+  end
+  def new
+    @company=Company.new
   end
 
   def edit
@@ -11,23 +14,19 @@ class CompaniesController < ApplicationController
   def update
     @company=Company.find(params[:id])
     if @company.update(company_params)
-      redirect_to root_path
+      #redirect_to root_path
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
   def create
-    @company=Company.create(company_params)
-    # if @company.save
-    #   if params[:company][:projects].present?
-    #     create_projects
-    #   end
-    # end
-
-    # p 66666666666666666
-    # p params[:company][:projects]
-    # @company.build_project(params[:company][:projects])
-    # @company.projects << @company.project.create(params[:company][:projects])
-    redirect_to root_path
+    @company=Company.create!(company_params)
+    # redirect_to root_path
+    respond_to do |format|
+      format.js 
+    end
   end
 
   def destroy

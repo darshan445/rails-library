@@ -1,0 +1,3 @@
+console.log('update is working');
+$('#company-<%= @company.id %>').replaceWith("<%= j render partial:'company', locals: {company: @company} %>")
+console.log("<%= @company.id %>")

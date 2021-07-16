@@ -17,28 +17,29 @@
 <%#= check_box(:subject, :student_ids, Student.all,:id,:name)%>
 <%#= check_box("tag", tag.id, {checked: true}) %>
 
-<div>
-    <%Subject.all.each do |subject|%>
-        <%subject.students.each do |student |%>
+ <div>
+    
+        <%Student.all.each do |student|%>
         <div class="checkbox">
             <td>
             <%if student.name!="" %>
-                <%= label_tag(:param_name1,student.name ) %>
-                <%= check_box_tag(:param_name1) %>
+                <%= student.name %>
+                <%= check_box_tag(:student_ids, student.id, false, name: 'subject[student_ids][]', id: "student-#{student.id}") %>
             <%end%>
             </td>
         </div>
-        <%end%>
+
     <%end%>
-</div>
+</div>      
+
+
 
 
 <%#=Subject.includes(:students).pluck('students.name').reject(&:blank?).join(',')%>
 
 
-<%
+ <%
 =begin%>
-  
  <div class="row">
             <%= collection_check_boxes(:subject, :student_ids, Student.all,:id,:name) do |b|%>
                  <%#=b.inspect%>
@@ -47,9 +48,10 @@
                  <%end%> 
              <%end%>
          </div>         
-    </div>   
+</div>  
 <%
 =end%>
+
 
 
         <%= form.submit class:'btn btn-primary my-2'  %>

@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: dlibrary_development
+  database: dlibrary
   host: 'localhost'
   port: '5432'
   username: 'postgres'

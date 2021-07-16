@@ -1,0 +1,8 @@
+$( document ).ready(function() {
+    $('.edit').click(function(){
+        $("#Model").find(".modal-body").html("<%= j render partial: 'form' %>");
+        $("#Model").modal("show");    
+    }) 
+});
+    
+

@@ -1,4 +1,4 @@
-<%= form_with model: @company do |form| %>
+ <%= form_with model: @company, local: false do |form| %>
     <div>
         <strong>Company Name</strong>
         <%= form.text_field :name, class:'form-control'%>
@@ -29,3 +29,22 @@
         <%= form.submit class:'btn btn-success my-3' %>
     </div>
 <%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
